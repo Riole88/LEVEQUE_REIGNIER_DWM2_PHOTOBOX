@@ -7,46 +7,35 @@
 </head>
 <body>
 <main id="photo">
-<h1>Photo : 105</h1>
+<section id="la_photo"></section>
 
-<section id="la_photo">
-   <img src="">
-    <h4>titre</h4>
-      <p>description</p>
-	  <p>type, defX x defY</p>
-	  <h4 id="la_categorie">categorie : categorie de l'image</h4>
-	  <h4>commentaires : </h4>
-	  <ul id="les_commentaires">
-		  <li>pseudo : Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, vitae.</li>
-		  <li>pseudo : Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, recusandae.</li>
-	  </ul>
 
-</section>
 </main>
 
+<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 <script id="photoTemplate" type="text/x-handlebars-template">
-	<h2>Photo {{id}}</h2>
-	<img class="photoImage" src="{{{url.href}}}">
-	<p>{{url.href}}</p>
-	<section id="la_categorie"></section>
-	<h4>Commentaires :</h4>
-	<ul id="les_commentaires"></ul>
+		<img src="{{ url }}" alt="Image photo">
+		<h4>{{ titre }}</h4>
+		<p>{{ description }}</p>
+		<p>Type : {{ type }}</p>
+		<h4 id="la_categorie"></h4>
+		<h4>commentaires : </h4>
+		<ul id="les_commentaires"></ul>
 </script>
 
 <script id="categorieTemplate" type="text/x-handlebars-template">
-	<h3>Categorie : {{categorie.nom}}</h3>
-	<p>Description :</p>
-	<p>{{categorie.descr}}</p>
+		<h4>categorie : {{ categorie }}</h4>
 </script>
 
-<script id="commentaireTemplate" type="text/x-handlebars-template">
-	{{#each comments}}
-		<li><strong>{{this.pseudo}}</strong> : {{this.content}}</li><br>
-	{{/each}}
+<script id="commentsTemplate" type="text/x-handlebars-template">
+	<ul>
+		{{#each comments}}
+			<li><strong>{{ this.pseudo }}</strong> : {{ this.content }}</li><br>
+		{{/each}}
+	</ul>
 </script>
 
-<script src="lib/handlebars-v4.7.8.js"></script>
 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-<script type="module" src='js/index.js' defer ></script>
+<script type="module" src='modules/index.js' defer ></script>
 </body>
 </html>
