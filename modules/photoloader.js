@@ -40,9 +40,6 @@ export function loadRessource() {
                 throw new Error(`Erreur HTTP : ${res.status}`);
             }
         })
-        .then( res => {
-            return res.photos;
-        })
         .catch(err => {
             console.log(err);
             return null;
