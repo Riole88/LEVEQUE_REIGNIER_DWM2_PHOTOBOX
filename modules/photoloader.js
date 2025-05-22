@@ -30,3 +30,21 @@ export function loadSource(uri) {
             return null;
         });
 }
+
+export function loadRessource() {
+    return fetch(`${API_PHOTO}/photos`)
+        .then( res => {
+            if (res.ok) {
+                return res.json();
+            } else {
+                throw new Error(`Erreur HTTP : ${res.status}`);
+            }
+        })
+        .then( res => {
+            return res.photos;
+        })
+        .catch(err => {
+            console.log(err);
+            return null;
+        });
+}
