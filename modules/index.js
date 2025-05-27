@@ -1,3 +1,5 @@
+import { load } from "./gallery.js";
+import { display_galerie } from "./gallery.ui.js";
 import {loadPicture, loadSource} from "./photoloader.js";
 import {displayPicture, displayCategorie, displayComments} from "./ui.js";
 
@@ -25,6 +27,9 @@ function getPicture(id) {
         }
     });
 }
+
+
+display_galerie(load());
 
 //on affiche la galerie
 //pour chaque photo de la galerie on applique un listenet "click" qui effecture l'action ci dessous
