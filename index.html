@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
+<button id="loadGalleryBtn">Charger la galerie</button>
 <ul id="galerie"></ul>
 <main id="photo">
 	<section id="la_photo"></section>
@@ -37,7 +38,7 @@
 <script id="galerieTemplate" type="text/x-handlebars-template">
 	<ul>
 		{{#each galerie}}
-		<li><img src="{{ this.href }}"></li><br>
+			<img src="https://webetu.iutnc.univ-lorraine.fr{{ this.photo.thumbnail.href }}" alt="Image photo">
 		{{/each}}
 	</ul>
 </script>

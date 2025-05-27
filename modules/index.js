@@ -29,8 +29,18 @@ function getPicture(id) {
 }
 
 
-display_galerie(load());
+document.addEventListener("DOMContentLoaded", () => {
+    const bouton = document.querySelector("#loadGalleryBtn");
+
+    bouton.addEventListener("click", async () => {
+        const galerie = await load();
+        display_galerie(galerie);
+        console.log(galerie);
+    });
+});
+
 
 //on affiche la galerie
 //pour chaque photo de la galerie on applique un listenet "click" qui effecture l'action ci dessous
 getPicture(window.location.hash ? window.location.hash.substr(1): 105);
+
