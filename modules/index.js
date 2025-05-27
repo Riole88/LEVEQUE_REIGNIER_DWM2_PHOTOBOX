@@ -26,4 +26,6 @@ function getPicture(id) {
     });
 }
 
+//on affiche la galerie
+//pour chaque photo de la galerie on applique un listenet "click" qui effecture l'action ci dessous
 getPicture(window.location.hash ? window.location.hash.substr(1): 105);

@@ -6,10 +6,9 @@
   <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
+<ul id="galerie"></ul>
 <main id="photo">
-<section id="la_photo"></section>
-
-
+	<section id="la_photo"></section>
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
@@ -31,6 +30,14 @@
 	<ul>
 		{{#each comments}}
 			<li><strong>{{ this.pseudo }}</strong> : {{ this.content }}</li><br>
+		{{/each}}
+	</ul>
+</script>
+
+<script id="galerieTemplate" type="text/x-handlebars-template">
+	<ul>
+		{{#each galerie}}
+		<li><img src="{{ this.href }}"></li><br>
 		{{/each}}
 	</ul>
 </script>

@@ -31,7 +31,7 @@ export function loadSource(uri) {
         });
 }
 
-export function loadRessource() {
+export function loadResource() {
     return fetch(`${API_PHOTO}/photos`)
         .then( res => {
             if (res.ok) {
