@@ -40,7 +40,7 @@
 <script id="galerieTemplate" type="text/x-handlebars-template">
 	<ul>
 		{{#each galerie}}
-			<img src="https://webetu.iutnc.univ-lorraine.fr{{ this.photo.thumbnail.href }}" alt="Image photo">
+			<img src="https://webetu.iutnc.univ-lorraine.fr{{ this.photo.thumbnail.href }}" alt="Image photo" class="gallery-image" data-id="{{ this.photo.id }}">
 		{{/each}}
 	</ul>
 </script>

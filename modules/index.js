@@ -35,22 +35,31 @@ document.addEventListener("DOMContentLoaded", () => {
     bouton.addEventListener("click", async () => {
         const galerie = await load();
         display_galerie(galerie);
-        console.log(galerie);
+        addImageClickListeners();
     });
 
     document.querySelector("#nextBtn").addEventListener("click", async () => {
         const galerie = await next();
         display_galerie(galerie);
+        addImageClickListeners();
     });
 
     document.querySelector("#prevBtn").addEventListener("click", async () => {
         const galerie = await prev();
         display_galerie(galerie);
+        addImageClickListeners();
     });
 });
 
+function addImageClickListeners() {
+    document.querySelectorAll(".gallery-image").forEach(img => {
+        img.addEventListener("click", () => {
+            const id = img.getAttribute("data-id");
+            getPicture(id);
+            window.location.hash = `#${id}`;
+        });
+    });
+}
 
-//on affiche la galerie
-//pour chaque photo de la galerie on applique un listenet "click" qui effecture l'action ci dessous
-getPicture(window.location.hash ? window.location.hash.substr(1): 105);
+
 
