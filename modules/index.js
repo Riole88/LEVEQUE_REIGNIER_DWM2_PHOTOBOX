@@ -1,4 +1,4 @@
-import { load } from "./gallery.js";
+import { load, next, prev } from "./gallery.js";
 import { display_galerie } from "./gallery.ui.js";
 import {loadPicture, loadSource} from "./photoloader.js";
 import {displayPicture, displayCategorie, displayComments} from "./ui.js";
@@ -36,6 +36,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const galerie = await load();
         display_galerie(galerie);
         console.log(galerie);
+    });
+
+    document.querySelector("#nextBtn").addEventListener("click", async () => {
+        const galerie = await next();
+        display_galerie(galerie);
+    });
+
+    document.querySelector("#prevBtn").addEventListener("click", async () => {
+        const galerie = await prev();
+        display_galerie(galerie);
     });
 });
 
